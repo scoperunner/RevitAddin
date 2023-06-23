@@ -1,6 +1,0 @@
-E:\CodeProjects\C\RevitAddin\RevitAddin\RevitAddinCRH\obj\Debug\RevitAddinCRH.csproj.AssemblyReference.cache
-E:\CodeProjects\C\RevitAddin\RevitAddin\RevitAddinCRH\obj\Debug\RevitAddinCRH.csproj.CoreCompileInputs.cache
-E:\CodeProjects\C\RevitAddin\RevitAddin\RevitAddinCRH\bin\Debug\RevitAddinCRH.dll
-E:\CodeProjects\C\RevitAddin\RevitAddin\RevitAddinCRH\bin\Debug\RevitAddinCRH.pdb
-E:\CodeProjects\C\RevitAddin\RevitAddin\RevitAddinCRH\obj\Debug\RevitAddinCRH.dll
-E:\CodeProjects\C\RevitAddin\RevitAddin\RevitAddinCRH\obj\Debug\RevitAddinCRH.pdb
