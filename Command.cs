@@ -54,7 +54,7 @@ namespace RevitAddinCRH
             double beamBottomHeightAsDouble;
             if (!Double.TryParse(beamBottomHeight, out beamBottomHeightAsDouble)) 
             {
-                Debug.WriteLine("beam.STRUCTURAL_ELEVATION_AT_BOTTOM is not a numeric value. This constitutes an invalidParameterException");
+                Debug.WriteLine($"{BeamBotttomHeightParameterName} is not a numeric value. This constitutes an invalidParameterException");
                 return Result.Failed;
             }
 
@@ -79,7 +79,7 @@ namespace RevitAddinCRH
                     double collumTopHeightAsDouble;
                     if (!Double.TryParse(collumTopHeight, out collumTopHeightAsDouble))
                     {
-                        Debug.WriteLine("beam.STRUCTURAL_ELEVATION_AT_BOTTOM is not a numeric value. This constitutes an invalidParameterException");
+                        Debug.WriteLine($"{collumHeightParameterName}is not a numeric value. This constitutes an invalidParameterException");
                         tx.RollBack();
                         return Result.Failed;
                     }
