@@ -40,6 +40,11 @@
     <StartProgram>$(ProgramW6432)\Autodesk\Revit 2023\Revit.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdWindows">
+      <HintPath>H:\Autodesk\product\Revit 2024\AdWindows.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
       <HintPath>H:\Autodesk\product\Revit 2024\RevitAPI.dll</HintPath>
       <Private>False</Private>
@@ -49,6 +54,9 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
@@ -59,6 +67,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="RevitAddinCRH.addin" />
   </ItemGroup>
   <ItemGroup>
@@ -71,35 +82,38 @@
   <PropertyGroup>
     <PostBuildEvent>copy "$(ProjectDir)*.addin" "$(ProjectDir)\Output"
 copy "$(ProjectDir)$(OutputPath)*.dll" "$(ProjectDir)\Output"
-if exist "$(AppData)\Autodesk\REVIT\Addins\2024" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2024"
+copy "$(ProjectDir)\Resources\icon.ico" "$(ProjectDir)\Output"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2024" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2024"
+if exist "$(AppData)\Autodesk\Revit\Addins\2024" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2024"
 
+if exist "$(AppData)\Autodesk\Revit\Addins\2024" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2024"
+if exist "$(AppData)\Autodesk\Revit\Addins\2024\Resources" copy "$(ProjectDir)\Resources\icon.ico" "$(AppData)\Autodesk\REVIT\Addins\2024\Resources"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2023" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2023"
+if exist "$(AppData)\Autodesk\Revit\Addins\2023" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2023"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2023" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2023"
-
+if exist "$(AppData)\Autodesk\Revit\Addins\2023" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2023"
+if exist "$(AppData)\Autodesk\Revit\Addins\2023\Resources" copy "$(ProjectDir)\Resources\icon.ico" "$(AppData)\Autodesk\REVIT\Addins\2023\Resources"
 
 if exist "$(AppData)\Autodesk\REVIT\Addins\2019" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2019"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2019" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2019"
-
+if exist "$(AppData)\Autodesk\Revit\Addins\2019" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2019"
+if exist "$(AppData)\Autodesk\Revit\Addins\2019\Resources" copy "$(ProjectDir)\Resources\icon.ico" "$(AppData)\Autodesk\REVIT\Addins\2019\Resources"
 
 if exist "$(AppData)\Autodesk\REVIT\Addins\2018" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2018"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2018" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2018"
+if exist "$(AppData)\Autodesk\Revit\Addins\2018" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2018"
+if exist "$(AppData)\Autodesk\Revit\Addins\2018\Resources" copy "$(ProjectDir)\Resources\icon.ico" "$(AppData)\Autodesk\REVIT\Addins\2018\Resources"
 
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2016" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2016"
+if exist "$(AppData)\Autodesk\Revit\Addins\2017" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2017"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2016" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2016"
+if exist "$(AppData)\Autodesk\Revit\Addins\2017" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2017"
+if exist "$(AppData)\Autodesk\Revit\Addins\2017\Resources" copy "$(ProjectDir)\Resources\icon.ico" "$(AppData)\Autodesk\REVIT\Addins\2017\Resources"
 
+if exist "$(AppData)\Autodesk\Revit\Addins\2016" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2016"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2017" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2017"
-
-if exist "$(AppData)\Autodesk\REVIT\Addins\2017" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2017"
-
+if exist "$(AppData)\Autodesk\Revit\Addins\2016" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2016"
+if exist "$(AppData)\Autodesk\Revit\Addins\2016\Resources" copy "$(ProjectDir)\Resources\icon.ico" "$(AppData)\Autodesk\REVIT\Addins\2016\Resources"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

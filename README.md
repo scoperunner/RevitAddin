@@ -5,13 +5,11 @@ As such if you are using an older version of revit you may have to manually move
 which is usually located at %AppData%\Roaming\Autodesk\Revit\addins\"versionNumber".
 
 if you are using one of the following versions, Then the Build events should automaticly move newly compiled addin to the specified folder.
-supported versions:
-Revit 2024,
-Revit 2023,
-Revit 2019,
-Revit 2018,
-Revit 2017,
-Revit 2016
-
+Revit 2024: Supported 
+Revit 2023: likely supported, but untested
+Revit 2019: likely supported, but untested
+Revit 2018: likely supported, but untested
+Revit 2017: likely unsupported, but untested
+Revit 2016: likely unsupported, but untested
 
 otherwise you will find a copy of the .addin and .dll files at $(ProjectDir)\Output
