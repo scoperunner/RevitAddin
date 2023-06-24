@@ -28,13 +28,31 @@ namespace RevitAddinCRH
         private static void AttachOffSetButton(RibbonPanel panel)
         {
             string thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
-            if (panel.AddItem(new PushButtonData("AutoTopOffsetButton", "Auto Top-Offset", thisAssemblyPath, "RevitAddinCRH.Command")) is PushButton button)
+            if (
+                panel.AddItem(
+                    new PushButtonData(
+                        "AutoTopOffsetButton",
+                        "Auto Top-Offset",
+                        thisAssemblyPath,
+                        "RevitAddinCRH.Command"
+                        )
+                    )
+                is PushButton button)
             {
-                button.ToolTip = "This Button excutes the task given by CRH Concrete. "; //Tooltip is a bit of a mouthfull since I can't see the function have a practical proffesional purpose. Since it is too unspecific.
+                //Tooltip is a bit of a mouthfull since I can't see the function have a practical proffesional purpose. Since it is too unspecific.
+                button.ToolTip = "This Button excutes the task given by CRH Concrete. ";
 
-                Uri uri = new Uri(Path.Combine(Path.GetDirectoryName(thisAssemblyPath), "Resources", "icon.ico"));
-                BitmapImage iconBitmap = new BitmapImage(uri);
+                //Add Icon, The icon might not be the best size. I'm not the biggest icon-specialist.
+                BitmapImage iconBitmap = GetIcon(thisAssemblyPath);
+                button.Image = iconBitmap;
             }
+        }
+
+        private static BitmapImage GetIcon(string thisAssemblyPath)
+        {
+            Uri uri = new Uri(Path.Combine(Path.GetDirectoryName(thisAssemblyPath), "RevitAddinCRH", "Resouces", "icon.ico"));
+            BitmapImage iconBitmap = new BitmapImage(uri);
+            return iconBitmap;
         }
 
         public Result OnShutdown(UIControlledApplication a)
